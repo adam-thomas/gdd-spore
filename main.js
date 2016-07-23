@@ -20,10 +20,34 @@ for (var i = 0; i <= 100; i++) {
 	scene.appendChild(sphereClone);
 }
 
-document.querySelector('[camera]').addEventListener('componentchanged', function(evt) {
-	if (evt.detail.name === 'position') {
-		console.log(evt.detail.newData);
+// document.querySelector('[camera]').addEventListener('componentchanged', function(evt) {
+// 	if (evt.detail.name === 'position') {
+// 		console.log(evt.detail.newData);
+// 	}
+// });
+
+
+var coordinates = AFRAME.utils.coordinates;
+AFRAME.registerComponent('cell', {
+	schema: {
+		position: {
+			default: '0 0 0'
+		},
+		radius: {
+			default: '1'
+		},
+		color: {
+			default: '#333'
+		}
+	},
+	update: function() {
+		console.log("hello");
+	},
+	tick: function() {
+		console.log("hello!");
+		console.log(this);
+	},
+	remove: function() {
+		this.el.removeObject3D()
 	}
 });
-
-
