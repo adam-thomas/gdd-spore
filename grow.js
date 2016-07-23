@@ -31,10 +31,4 @@ function grow() {
         sphere.setAttribute('position', position);
         sphere.setAttribute('radius', sphere.getAttribute('radius') / scalingFactor);
     }
-
-    // Divide the player's y position too.
-    var camera = document.querySelector('[camera]');
-        position = camera.getAttribute('position');
-        position.y /= scalingFactor;
-        camera.setAttribute('position', position);
 }
