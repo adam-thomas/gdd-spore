@@ -1,8 +1,6 @@
 /**
  * Created by Tom Firth on 23/07/2016.
  */
-// var position = 0;
-
 var scene = document.querySelector('#main-scene');
 var sphere = document.querySelector('#sphere');
 
@@ -29,25 +27,15 @@ for (var i = 0; i <= 100; i++) {
 
 var coordinates = AFRAME.utils.coordinates;
 AFRAME.registerComponent('cell', {
-	schema: {
-		position: {
-			default: '0 0 0'
-		},
-		radius: {
-			default: '1'
-		},
-		color: {
-			default: '#333'
-		}
-	},
+	schema: {},
+	multiple: true,
 	update: function() {
 		console.log("hello");
 	},
 	tick: function() {
-		console.log("hello!");
-		console.log(this);
+		console.log("tick!");
 	},
 	remove: function() {
-		this.el.removeObject3D()
+
 	}
 });
