@@ -10,16 +10,15 @@
   </head>
   <body>
     <a-assets>
-      <img id="sky" src="./assets/closeplanets.jpg">
-      <img id="plane" src="./assets/stars.jpg">
+      <img id="sky" src="./assets/space.png">
+      <img id="planet" src="./assets/planet.png">
     </a-assets>
-    <a-scene>
+    <a-scene fog="type: exponential; color: #34363a; far: 30; near: 0; density: 0.0015">
       <a-entity position="0 1 5">
         <a-entity camera look-controls keyboard-controls></a-entity>
       </a-entity>
-      <a-sphere id="sphere" position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-plane rotation="-90 0 0" width="40000" height="40000" transparent="true" opacity="0.2" color="#32333c"</a-plane>
-      <a-sky material="src: #sky"></a-sky>
+      <a-sphere id="sphere" position="0 1.25 -1" radius="1.25" material="src: #planet"></a-sphere>
+      <a-sky material="src: #sky; shader: flat; fog: false"></a-sky>
     </a-scene>
   </body>
 </html>
