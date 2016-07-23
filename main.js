@@ -25,3 +25,5 @@ document.querySelector('[camera]').addEventListener('componentchanged', function
 		console.log(evt.detail.newData);
 	}
 });
+
+
