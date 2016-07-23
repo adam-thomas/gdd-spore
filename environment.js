@@ -58,7 +58,7 @@ function setup_environment() {
     // Tie it all together.
     // Spawn a number of increasingly large entities to fill up the world!
     // They are positioned largely at random.
-    var sphere = document.querySelector('#sphere');
+    var sphere = document.querySelector('#planetObject');
     var scene = document.querySelector('a-scene');
     scene.removeChild(sphere);
 

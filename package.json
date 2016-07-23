@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "budo --live --verbose --port 3000 --open",
+    "start": "budo --live --verbose --port 3000 --open --host 0.0.0.0",
     "deploy": "ghpages",
     "ghpages": "ghpages"
   },
