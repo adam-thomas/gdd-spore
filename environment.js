@@ -42,7 +42,7 @@ function createSphere(baseSphere, colour, sizeFactor, distanceFactor, minDistanc
     // y is nice-looking vertical displacement.
     xPos = get_distance(distanceFactor, minDistance);
     zPos = get_distance(distanceFactor, minDistance);
-    yPos = 1 + Math.random() * yDisplacementFactor - (yDisplacementFactor / 2);
+    yPos = Math.random() * yDisplacementFactor - (yDisplacementFactor / 2);
     position = xPos + ' ' + yPos + ' ' + zPos;
 
     // Apply attributes to the (cloned) AFrame object.
