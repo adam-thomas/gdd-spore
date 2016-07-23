@@ -1,7 +1,7 @@
 // Configuration!
-var sizes = [1.3, 4, 16, 64];
-var distances = [15, 50, 130, 1500];
-var colours = ["#4CC3D9", "#2CA3B9", "#0C8399", "#066379"];
+var sizes = [1.3, 4, 16, 64, 150];
+var distances = [15, 50, 130, 1500, 4000];
+var materials = ["planet1", "planet2", "planet3", "planet4", "planet5"];
 
 var numNearSpheres = 30;
 var furtherSpreadSpheresFactor = 100;
@@ -26,7 +26,7 @@ function get_distance(distanceFactor, minDistance) {
 }
 
 
-function createSphere(baseSphere, colour, sizeFactor, distanceFactor, minDistance, yDisplacementFactor) {
+function createSphere(baseSphere, material, sizeFactor, distanceFactor, minDistance, yDisplacementFactor) {
     // Spawn a sphere.
     // Parameters are:
     //    baseSphere - an <a-sphere> object to clone. (Generating from scratch is hard.)
@@ -48,7 +48,7 @@ function createSphere(baseSphere, colour, sizeFactor, distanceFactor, minDistanc
     // Apply attributes to the (cloned) AFrame object.
     newSphere.setAttribute('position', position);
     newSphere.setAttribute('radius', sizeFactor / 2);
-    newSphere.setAttribute('color', colour);
+    newSphere.setAttribute('material', "src: #" + material);
 
     return newSphere;
 }
@@ -66,12 +66,12 @@ function setup_environment() {
         sizeFactor = sizes[s];
         distanceFactor = distances[s];
         displacementFactor = distanceFactor / 10;
-        colour = colours[s];
+        material = materials[s];
 
         // Create 30 spheres near where the player starts out, but no closer than
         // sizeFactor to prevent anything spawning on/blocking the player.
         for (i = 0; i < numNearSpheres; i++) {
-            sphere = createSphere(sphere, colour, sizeFactor, distanceFactor, sizeFactor, displacementFactor);
+            sphere = createSphere(sphere, material, sizeFactor, distanceFactor, sizeFactor, displacementFactor);
             scene.appendChild(sphere);
         }
 
@@ -79,7 +79,7 @@ function setup_environment() {
         // The number of these is inversely proportional to their size.
         furtherSpreadSpheres = Math.floor(furtherSpreadSpheresFactor / sizeFactor);
         for (i = 0; i < furtherSpreadSpheres; i++) {
-            sphere = createSphere(sphere, colour, sizeFactor, distanceFactor * 8, distanceFactor, displacementFactor * 2);
+            sphere = createSphere(sphere, material, sizeFactor, distanceFactor * 8, distanceFactor, displacementFactor * 2);
             scene.appendChild(sphere);
         }
     }
